@@ -14,9 +14,14 @@ describe('PostsService', () => {
 
   it('should add a new post', () => {
     // реализуйте тест-кейс
+    const createdPost = postsService.create(post);
+    expect(createdPost.text).toEqual(post.text);
   });
 
   it('should find a post', () => {
     // реализуйте тест-кейс
+    const { id } = postsService.create(post);
+    const findPost = postsService.find(id);
+    expect(findPost?.text).toEqual(post.text);
   });
 });
